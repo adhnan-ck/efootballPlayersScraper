@@ -55,7 +55,7 @@ public class ScrapingService {
                 // Process each row
                 for (Element row : rows) {
                     try {
-                        Elements cells = row.select("th, td");
+                        Elements cells = row.select("td"); // removed th 
                         
                         if (cells.size() >= 8) {
                             String position = cells.get(0).text();
@@ -80,8 +80,8 @@ public class ScrapingService {
                 hasMorePages = hasNextPage(doc, currentPage);
                 currentPage++;
                 
-                // Add a small delay to be respectful to the server
-                Thread.sleep(2000);
+                // // Try reducing the sleep time to scrape fast. increase the scrape time if the website is blocking. 
+                Thread.sleep(2000); 
                 
             } catch (IOException e) {
                 System.err.println("Error scraping page " + currentPage + ": " + e.getMessage());
@@ -177,7 +177,7 @@ public class ScrapingService {
                 }
 
                 System.out.println("Scraped " + rows.size() + " players from page " + page);
-              Thread.sleep(2000); // Be respectful to the server
+              Thread.sleep(2000); // Try reducing the sleep time to scrape fast. increase the scrape time if the website is blocking. 
                 
             } catch (IOException e) {
                 System.err.println("Error scraping page " + page + ": " + e.getMessage());
