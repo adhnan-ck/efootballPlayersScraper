@@ -1,4 +1,6 @@
 # efootballPlayersScraper
-This is a java spring boot application which scrapes every players basic details from the pesdb using jsoup
+A spring boot project that scrape details of every standard players from the pesdb website.
+
+
 
 #java #springboot #jsoup #webscraping
